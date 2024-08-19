@@ -8,7 +8,7 @@ def simular_carro(carro: Carro):
     op = 0
     while op not in (1,2,3):
         op = int(input("Digite as opcoes[1-3]: "))
-aa
+
     if op == 1:
         carro.ligar()
     elif op == 2:
