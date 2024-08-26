@@ -1,7 +1,7 @@
 import pickle
 import traceback
 
-from Pessoa import *
+from Common import *
 
 FILE_ELEITORES = 'eleitores.pkl'
 FILE_CANDIDATOS = 'candidatos.pkl'
