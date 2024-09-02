@@ -32,7 +32,7 @@ class Urna:
             pickle.dump(self.__votos, arquivo)
 
         with open(f'{self.__nome_arquivo}_zeresima.pkl', 'wb') as arquivo:
-            pickle.dump(self.get_zerissima(), arquivo)
+            pickle.dump(self.get_zeresima(), arquivo)
 
     def get_eleitor(self, titulo : int):
         for eleitor in self.__eleitores:
@@ -52,7 +52,7 @@ class Urna:
         with open(self.__nome_arquivo, 'wb') as arquivo:
             pickle.dump(self.__votos, arquivo)
 
-    def get_zerissima(self):
+    def get_zeresima(self):
         info : str = ""
         for candidato, votos in self.__votos.items():
             info += f'{candidato} = {votos}\n'
@@ -60,7 +60,7 @@ class Urna:
 
     def __del__(self):
         with open(f'{self.__nome_arquivo}_zerF.pkl', 'wb') as arquivo:
-            pickle.dump(self.get_zerissima(), arquivo)
+            pickle.dump(self.get_zeresima(), arquivo)
 
     def __str__(self):
         data_atual = date.today()
