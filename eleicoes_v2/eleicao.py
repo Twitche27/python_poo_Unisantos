@@ -60,7 +60,7 @@ class Urna:
 
     def __del__(self):
         with open(f'{self.__nome_arquivo}_zerF.pkl', 'wb') as arquivo:
-            pickle.dump(self.get_zeresaima(), arquivo)
+            pickle.dump(self.get_zeresima(), arquivo)
 
     def __str__(self):
         data_atual = date.today()
