@@ -13,6 +13,9 @@ class Funcionario(ABC):
         self.__salario = salario
         self.__senha = senha
 
+    def get_senha(self) -> int:
+        return self.__senha
+
     @abstractmethod
     def autenticar(self, usuario : str, senha : int) -> bool:
         if usuario == self.__cpf and senha == self.__senha:
@@ -29,6 +32,9 @@ class Gerente(Funcionario):
     def cancelarOperacao(self) -> None:
         print("Operação cancelada com sucesso!")
 
+    def autenticar(self, usuario: str, senha: int) -> bool:
+        return super().autenticar(usuario, senha)
+
 class OperadorCaixa(Funcionario):
     __numeroCaixa : int
 
@@ -39,9 +45,8 @@ class OperadorCaixa(Funcionario):
     def registrar(self) -> None:
         print("Registro efetuado com sucesso!")
 
-    @abstractmethod
     def autenticar(self, numeroCaixa: str, senha: int) -> bool:
-        if numeroCaixa == self.__numeroCaixa and senha == self.__senha:
+        if numeroCaixa == self.__numeroCaixa and senha == self.get_senha():
             return True
         return False
 
@@ -51,6 +56,9 @@ class Seguranca(Funcionario):
     def __init__(self, nome: str, cpf: str, salario: float, senha: int, posto : str) -> None:
         super().__init__(nome, cpf, salario, senha)
         self.__posto = posto
+
+    def autenticar(self, usuario: str, senha: int) -> bool:
+        return super().autenticar(usuario, senha)
 
     def acionarAlarme(self) -> None:
         print("UOOOOOOOOOUUUUUOOOOOOOOOOOOUUUUUUOOOOOOOO")
